@@ -1,0 +1,59 @@
+# baseURL 변경
+baseURL = "/braket-workshop/"
+languageCode = "ko-KR"
+defaultContentLanguage = "ko"
+
+# title 변경
+title = "Amazon Braket 실습"
+theme = "hugo-theme-learn"
+themesdir = "."
+metaDataFormat = "yaml"
+defaultContentLanguageInSubdir= true
+
+# description, author 변경
+[params]
+  description = "Amazon Braket 실습"
+  author = "Jiyeon Kang"
+  showVisitedLinks = true
+  disableBreadcrumb = false
+  disableNextPrev = false
+  themeVariant = "aws"
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[Languages]
+[Languages.ko]
+title = "Amazon Braket 실습"
+weight = 1
+languageName = "한국어"
+
+[[Languages.ko.menu.shortcuts]]
+name = "<i class='fas fa-fw fa-bookmark'></i> 참고자료"
+identifier = "braket_doc"
+url = "https://docs.aws.amazon.com/braket/latest/developerguide/what-is-braket.html"
+weight = 10
+
+[[Languages.ko.menu.shortcuts]]
+name = "<i class='fab fa-fw fa-aws'></i> AWS Homepage"
+identifier = "aws"
+url = "https://aws.amazon.com/"
+weight = 12
+
+[[Languages.ko.menu.shortcuts]]
+name = "<i class='fas fa-fw fa-blog'></i> AWS Korea Blog"
+identifier = "blog"
+url = "https://aws.amazon.com/ko/blogs/korea/"
+weight = 14
+
+[[Languages.ko.menu.shortcuts]]
+name = "<i class='fab fa-fw fa-facebook-square'></i> Facebook"
+identifier = "facebook"
+url = "https://www.facebook.com/groups/awskrug/"
+weight = 16
+
+[[Languages.ko.menu.shortcuts]]
+name = "<i class='fab fa-fw fa-github'></i> GitHub Repo"
+identifier = "ds"
+url = "https://github.com/kkkkk317/amazon-braket-workshops"
+weight = 18
