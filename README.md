@@ -7,7 +7,7 @@ Get started: http://aws-ps-kr-workshop.s3-website-us-east-1.amazonaws.com/braket
 ! This workshop is written in **Korean**.
 
 ## Amazon Braket
-[Amazon Braket](https://aws.amazon.com/braket/) is a fully managed quantum computing service that helps researchers and developers get started with the technology to accelerate research and discovery. Amazon Braket provides a development environment for you to explore and build quantum algorithms, test them on quantum circuit simulators, and run them on different quantum hardware technologies.
+[Amazon Braket](https://aws.amazon.com/braket/) is a **fully managed quantum computing service** that helps researchers and developers get started with the technology to accelerate research and discovery. Amazon Braket provides a development environment for you to explore and build quantum algorithms, test them on quantum circuit simulators, and run them on different quantum hardware technologies.
 
 ![braket](content/images/working-process.png)
 
