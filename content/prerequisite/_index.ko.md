@@ -23,7 +23,6 @@ AWS 관리 콘솔에 로그인하여 실습 환경을 준비합니다.
 ---
 
 ## S3 Bucket 주소 확인
-#### 메일로 S3 bucket 주소를 받으셨다면, 다음 실습으로 넘어가셔도 됩니다.
 
 {{% notice tip %}}
 Amazon Braket 실행 결과를 S3 bucket에 저장할 수 있습니다.

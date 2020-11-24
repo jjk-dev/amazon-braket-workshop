@@ -20,7 +20,12 @@ pre: "<b>4. </b>"
 ![qpu](./images/qpu.png)
 
 ---
+## 첨부 파일
+추가적인 코드와 설명이 포함된 실습 자료를 **우클릭으로**  다운로드 하실 수 있습니다. 재배포는 금해주시기 바랍니다.
 
+{{% attachments style="blue" pattern=".*(ipynb)" /%}}
+
+---
 © 2020 Amazon Web Services, Inc. 또는 자회사, All rights reserved.
 
 

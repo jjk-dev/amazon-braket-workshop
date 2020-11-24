@@ -1,5 +1,5 @@
 ---
-title: 번외
+title: 번외 (개인 계정 사용)
 weight: 70
 pre: "<b>+. </b>"
 ---

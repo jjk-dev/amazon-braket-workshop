@@ -21,7 +21,7 @@ Simulator는 Simulator 실습에서 사용한 **Braket SV1 Simulator**를 사용
 이제부터 **Jupyter notebook의 각 cell**에 아래 코드를 붙여 넣은 후, **Run 버튼**을 클릭하거나 **shift + enter 키**를 눌러 실행하시면 됩니다.
 
 {{% notice info  %}}
-IonQ와 Rigetti는 양자컴퓨팅 교육 세미나 시간에 사용이 가능하지 않아, SV1 코드만 포함되어 있습니다. 또한, 새로운 Jupyter notebook을 생성해서 진행해주세요.
+새로운 Jupyter notebook을 생성해서 진행해주세요.
 {{% /notice %}}
 
 1. Import로 모듈 가져오기
@@ -47,7 +47,7 @@ from braket.devices import LocalSimulator
 2. 결과를 저장할 S3 bucket을 지정합니다. **my_bucket**에는 복사한 S3 bucket의 주소 `amazon-braket-xxxx`로 변경하시고, **my_prefix**는 그대로 복사해주세요.
 ```
 my_bucket = f"amazon-braket-xxxx"
-my_prefix = "compare-output"
+my_prefix = "bv-output"
 s3_folder = (my_bucket, my_prefix)
 ```
 
@@ -133,15 +133,67 @@ plt.ylabel('counts');
 ![result-3](./images/result-3.png)
 
 {{% notice warning %}}
-IonQ와 Rigetti는 양자컴퓨팅 교육 세미나 시간에 사용이 가능하지 않아, SV1 코드만 포함되어 있습니다. 전체적인 코드 내용은 동일하며 결과만 포함하였습니다. 코드를 원하시면, 세미나 이후 해당 가이드에 업로드 될 예정이니 참고 부탁드립니다.
+IonQ와 Rigetti는 사용 시간이 정해져 있습니다. [Devices]-[해당 QPU]를 선택해 **Availability**에 대한 상세 정보를 확인해주세요. 
 {{% /notice %}}
 
 ### IonQ
+7. 사용할 Device를 설정하는 부분입니다. 아래와 동일하게 **IonQ의 ARN 주소**를 입력합니다.
+```
+device = AwsDevice("arn:aws:braket:::device/qpu/ionq/ionQdevice")
+print('Device:', device)
+```
+
+8. IonQ에서 Bernstein Vazirani Circuit을 실행합니다.
+```
+## Create a quantum task to run the BV circuit on IonQ
+ionq_task_BV = device.run(BV_circuit, s3_folder, shots=100)
+
+## Get results of task
+ionq_results = ionq_task_BV.result()
+
+## Get measurement counts
+ionq_counts = ionq_results.measurement_counts
+
+# print counts
+print(ionq_counts)
+
+# plot using Counter
+plt.bar(ionq_counts.keys(), ionq_counts.values());
+plt.xlabel('bitstrings');
+plt.ylabel('counts');
+```
+
 아래와 같이 결과를 볼 수 있습니다.
 ![result-4](./images/result-4.png)
 
 
 ### Rigetti
+9. 사용할 Device를 설정하는 부분입니다. 아래와 동일하게 **Rigetti의 ARN 주소**를 입력합니다.
+```
+device = AwsDevice("arn:aws:braket:::device/qpu/rigetti/Aspen-8")
+print('Device:', device)
+```
+
+10. Rigetti에서 Bernstein Vazirani Circuit을 실행합니다.
+```
+## Create a quantum task to run the BV circuit on Rigetti
+rigetti_task_BV = device.run(BV_circuit, s3_folder, shots=100)
+
+## Get results of task
+rigetti_results = rigetti_task_BV.result()
+
+## Get measurement counts
+rigetti_counts = rigetti_results.measurement_counts
+
+# print counts
+print(rigetti_counts)
+
+# plot using Counter
+plt.bar(rigetti_counts.keys(), rigetti_counts.values());
+plt.xlabel('bitstrings');
+plt.ylabel('counts');
+```
+
 아래와 같이 결과를 볼 수 있습니다.
 ![result-5](./images/result-5.png)
 

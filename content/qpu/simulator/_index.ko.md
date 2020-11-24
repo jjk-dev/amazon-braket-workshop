@@ -46,7 +46,7 @@ from braket.aws import AwsDevice, AwsQuantumTask
 2. 결과를 저장할 S3 bucket을 지정합니다. **my_bucket**에는 복사한 S3 bucket의 주소 `amazon-braket-xxxx`로 변경하시고, **my_prefix**는 그대로 복사해주세요.
 ```
 my_bucket = f"amazon-braket-xxxx"
-my_prefix = "simulator-output"
+my_prefix = "qft-qpe-output"
 s3_folder = (my_bucket, my_prefix)
 ```
 
